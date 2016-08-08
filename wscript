@@ -45,7 +45,7 @@ def build(self):
             'leon3/intunit/externalPins.cpp',
             'leon3/leon3.cpp',
         ] + self.path.ant_glob('memory/*.cpp'),
-        include = self.top_dir,
+        includes = self.top_dir,
         defines = 'ENABLE_HISTORY', 
         use          = [
                         'trap',
