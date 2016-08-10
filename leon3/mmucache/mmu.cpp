@@ -10,7 +10,7 @@
 /// @date 2010-2014
 /// @copyright All rights reserved.
 ///            Any reproduction, use, distribution or disclosure of this
-///            program, without the express, prior written consent of the 
+///            program, without the express, prior written consent of the
 ///            authors is strictly prohibited.
 /// @author Thomas Schuster
 ///
@@ -307,7 +307,7 @@ signed mmu::get_physical_address( uint64_t * paddr, signed * prot, unsigned * ac
     case 2: // L0 PTE -> shouldn't possibly not happen
     case 3: // Reserved
       return 4 << 2;                                        // L: Level 0, FT: Translation error
-    
+
     case 1: // 1. load from 1st-level page table
         pde_ptr = ((pde & ~3) << 4)+(idx1 << 2);
         m_mmu_cache->mem_read(pde_ptr, 0x8, (unsigned char *)&pde, 4, t, debug, is_dbg, cacheable_mem, false);
@@ -383,9 +383,9 @@ signed mmu::get_physical_address( uint64_t * paddr, signed * prot, unsigned * ac
 */
         /* update page modified and dirty bits */
         is_dirty = ( is_write );
-        if( is_dirty )    
+        if( is_dirty )
             pde |= (0x1 << 6); // Set Modified Bit
-        
+
         if( is_dirty || !( pde & (0x1 << 5) ) ) // if it got dirty, or has not been accessed yet -> referenced!
             pde |= (0x1 << 5); // Set Referenced Bit
 
@@ -468,7 +468,7 @@ signed mmu::tlb_lookup(unsigned int addr, unsigned asi,
 //    unsigned int offset = ((addr << m_vtag_width) >> m_vtag_width);
     t_VAT vpn = (addr >> (32 - m_vtag_width));
 
-    
+
     // Locals for intermediate results
     t_PTE_context tmp;
     *paddr = 0xffffffffffff0000ULL; // has size of 36bits!
@@ -560,7 +560,7 @@ signed mmu::tlb_lookup(unsigned int addr, unsigned asi,
 
 
 
-    
+
     uint64_t page_size;
     unsigned access_index;
     signed error_code = get_physical_address( paddr, NULL, &access_index,
@@ -572,8 +572,6 @@ signed mmu::tlb_lookup(unsigned int addr, unsigned asi,
                  << "In " << ((error_code >> 8) & 0x3) << "-Level Page Table / Entry type not valid: "
                  << " VA: " << v::uint32 << addr << ", is " << ( is_write ? "write" : "load" )
                  << " and " << ((! (asi & 0x2)) ? "instruction" : "data" ) << v::endl;
-
-       sleep(1);
 
         // Set fault status and fault address
         // (will be set 0, if read, otherwise set OW bit)
@@ -593,7 +591,7 @@ signed mmu::tlb_lookup(unsigned int addr, unsigned asi,
         // faults and translation errors.
         if( ! is_instruction_access )
             MMU_FAULT_STATUS_REG |= 1 << 1;             // FAV - Fault Address Register valid
-        
+
         MMU_FAULT_ADDRESS_REG = addr;
 
 
@@ -733,7 +731,7 @@ unsigned int mmu::read_mctpr() {
   #ifdef LITTLE_ENDIAN_BO
   swap_Endianess(tmp);
   #endif
-  
+
   v::debug << name() << "Read from MMU_CONTEXT_TABLE_POINTER_REG: " << hex << v::setw(8) << tmp << v::endl;
 
   return (tmp);
@@ -762,7 +760,7 @@ unsigned int mmu::read_mctxr() {
   #ifdef LITTLE_ENDIAN_BO
   swap_Endianess(tmp);
   #endif
-  
+
   v::debug << name() << "Read from MMU_CONTEXT_REG: " << hex << v::setw(8) << MMU_CONTEXT_REG << v::endl;
 
   return (tmp);
@@ -790,7 +788,7 @@ unsigned int mmu::read_mfsr() {
   #ifdef LITTLE_ENDIAN_BO
   swap_Endianess(tmp);
   #endif
-  
+
   v::debug << name() << "Read from MMU_FAULT_STATUS_REG: " << hex << v::setw(8) << MMU_FAULT_STATUS_REG << v::endl;
 
   // Page 258 - Table H-8:  Reading the Fault Status Register clears it
@@ -807,7 +805,7 @@ unsigned int mmu::read_mfar() {
   #ifdef LITTLE_ENDIAN_BO
   swap_Endianess(tmp);
   #endif
-  
+
   v::debug << name() << "Read from MMU_FAULT_ADDRESS_REG: " << hex << v::setw(8) << MMU_FAULT_ADDRESS_REG << v::endl;
 
   return (tmp);
@@ -1162,15 +1160,15 @@ void mmu::clkcng(sc_core::sc_time &clk) {
 
 /// TLB flush complete
 void mmu::tlb_flush() {
-  itlb->clear();  
-  dtlb->clear();  
+  itlb->clear();
+  dtlb->clear();
   v::debug << name() << "TLB flush" << v::endl;
 };
 
 /// TLB flush certain entry
 void mmu::tlb_flush(uint32_t vpn) {
-  itlb->clear();  
-  dtlb->clear();  
+  itlb->clear();
+  dtlb->clear();
   v::debug << name() << "TLB flush" << v::endl;
 }
 /// @}
