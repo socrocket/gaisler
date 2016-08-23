@@ -17,16 +17,16 @@
 
 #include <greencontrol/all.h>
 #include <boost/config.hpp>
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 #include <string>
 #include <vector>
 
 #include "gaisler/apbuart/io_if.h"
-#include "core/common/apbdevice.h"
+#include "amba/apbdevice.h"
 #include "core/common/clkdevice.h"
 #include "core/common/sr_signal.h"
-#include "core/common/verbose.h"
-#include "core/common/apbslave.h"
+#include "core/base/verbose.h"
+#include "amba/apbslave.h"
 
 /// @brief This class is a TLM 2.0 Model of the Aeroflex Gaisler GRLIB APBUART.
 /// Further informations to the original VHDL Modle are available in the GRLIB IP Core User's Manual Section 16

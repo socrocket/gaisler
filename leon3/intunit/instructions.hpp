@@ -38,16 +38,16 @@
 #ifndef LT_INSTRUCTIONS_HPP
 #define LT_INSTRUCTIONS_HPP
 
-#include "core/common/trapgen/instructionBase.hpp"
+#include "core/trapgen/instructionBase.hpp"
 #include <string>
-#include "core/common/trapgen/utils/customExceptions.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/utils/customExceptions.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 #include "gaisler/leon3/intunit/registers.hpp"
 #include "gaisler/leon3/intunit/alias.hpp"
 #include "gaisler/leon3/intunit/memory.hpp"
 #include "gaisler/leon3/intunit/externalPins.hpp"
 #include <sstream>
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 
 #define FUNC_MODEL
 #define LT_IF

@@ -15,7 +15,7 @@
 #ifndef MODELS_AHBMEM_AHBMEM_H_
 #define MODELS_AHBMEM_AHBMEM_H_
 
-#include "core/common/amba.h"
+#include "amba/amba.h"
 #include <tlm.h>
 
 #if defined(MTI_SYSTEMC)
@@ -29,10 +29,10 @@
 
 #include <map>
 
-#include "core/common/ahbslave.h"
+#include "amba/ahbslave.h"
 #include "core/common/clkdevice.h"
 #include "gaisler/memory/basememory.h"
-#include "core/common/msclogger.h"
+#include "core/utils/msclogger.h"
 
 class AHBMem : public AHBSlave<>, public CLKDevice, public BaseMemory{
   public:

@@ -20,12 +20,12 @@
 
 #include "core/common/sr_param.h"
 #include <greensocket/target/single_socket.h>
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 #include <tlm.h>
 
 #include "gaisler/memory/memorypower.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "core/common/sr_report.h"
 #include "core/common/clkdevice.h"
 #include "gaisler/memory/ext_erase.h"

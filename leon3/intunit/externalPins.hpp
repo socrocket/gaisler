@@ -38,8 +38,8 @@
 #ifndef LT_EXTERNALPINS_HPP
 #define LT_EXTERNALPINS_HPP
 
-#include "core/common/trapgen/utils/trap_utils.hpp"
-#include "core/common/systemc.h"
+#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/base/systemc.h"
 
 #include "core/common/sr_signal.h"
 

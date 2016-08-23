@@ -20,8 +20,8 @@
 #include "gaisler/leon3/mmucache/vectorcache.h"
 #include "gaisler/leon3/mmucache/defines.h"
 
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 
 // Implementation of data cache memory and controller
 // --------------------------------------------------

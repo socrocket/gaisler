@@ -17,8 +17,8 @@
 #define MODELS_APBUART_REPORTIO_H_
 
 #include "gaisler/apbuart/io_if.h"
-#include "core/common/systemc.h"
-#include "core/common/base.h"
+#include "core/base/systemc.h"
+#include "core/base/base.h"
 #include "core/common/sr_report.h"
 
 class ReportIO : public BaseModule<DefaultBase>, public io_if {

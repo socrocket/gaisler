@@ -16,8 +16,8 @@
 #include <utility>
 
 #include "gaisler/apbctrl/apbctrl.h"
-#include "core/common/vendian.h"
-#include "core/common/verbose.h"
+#include "core/base/vendian.h"
+#include "core/base/verbose.h"
 #include "core/common/sr_report.h"
 
 SR_HAS_MODULE(APBCtrl);

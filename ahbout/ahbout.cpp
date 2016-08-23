@@ -14,7 +14,7 @@
 #include <fstream>
 #include <iostream>
 #include "gaisler/ahbout/ahbout.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 /// Constructor
 AHBOut::AHBOut(const ModuleName nm,  // Module name

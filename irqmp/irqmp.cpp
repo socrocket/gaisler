@@ -16,7 +16,7 @@
 #include <utility>
 
 #include "gaisler/irqmp/irqmp.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 SR_HAS_MODULE(Irqmp);
 

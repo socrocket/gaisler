@@ -38,9 +38,9 @@
 #ifndef LT_MEMORY_HPP
 #define LT_MEMORY_HPP
 
-#include "core/common/trapgen/ToolsIf.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
-#include "core/common/systemc.h"
+#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/base/systemc.h"
 
 #include "gaisler/leon3/mmucache/cpu_if.h"
 

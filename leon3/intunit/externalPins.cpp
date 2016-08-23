@@ -35,9 +35,9 @@
 \***************************************************************************/
 
 #include "gaisler/leon3/intunit/externalPins.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 #include "core/common/sr_report.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 using namespace leon3_funclt_trap;
 

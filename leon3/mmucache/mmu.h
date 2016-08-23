@@ -20,15 +20,15 @@
 
 #include <map>
 #include <math.h>
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 #include "core/common/sr_param.h"
 
 #include "gaisler/leon3/mmucache/mmu_if.h"
 #include "gaisler/leon3/mmucache/tlb_adaptor.h"
 #include "gaisler/leon3/mmucache/mmu_cache_if.h"
 
-#include "core/common/vendian.h"
+#include "core/base/vendian.h"
 #include "gaisler/leon3/mmucache/defines.h"
 
 // implementation of a memory management unit

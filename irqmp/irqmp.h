@@ -16,12 +16,12 @@
 #define MODELS_IRQMP_IRQMP_H_
 
 #include <stdint.h>
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 #include "core/common/sr_param.h"
 #include <boost/config.hpp>
 #include <utility>
 
-#include "core/common/apbslave.h"
+#include "amba/apbslave.h"
 #include "core/common/clkdevice.h"
 #include "core/common/sr_signal.h"
 

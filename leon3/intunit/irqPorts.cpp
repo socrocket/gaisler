@@ -36,12 +36,12 @@
 
 
 
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 #include "gaisler/leon3/intunit/irqPorts.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 
 #include "core/common/sr_signal.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 
 using namespace leon3_funclt_trap;

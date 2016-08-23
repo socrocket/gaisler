@@ -15,7 +15,7 @@
 #ifndef MODELS_MEMORY_MAPSTORAGE_H_
 #define MODELS_MEMORY_MAPSTORAGE_H_
 
-#include "core/common/vmap.h"
+#include "core/base/vmap.h"
 
 #include "gaisler/memory/storage.h"
 

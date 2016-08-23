@@ -15,7 +15,7 @@
 ///
 
 #include "gaisler/leon3/mmucache/ivectorcache.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 // Overwrite write function
 void ivectorcache::mem_write(unsigned int address, unsigned char * data,

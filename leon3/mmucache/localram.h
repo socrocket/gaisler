@@ -18,7 +18,7 @@
 #define __LOCALRAM_H__
 
 #include <stdint.h>
-#include "core/common/base.h"
+#include "core/base/base.h"
 #include "core/common/sr_param.h"
 
 #include "gaisler/leon3/mmucache/mem_if.h"

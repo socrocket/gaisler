@@ -21,8 +21,8 @@
 #include "gaisler/leon3/mmucache/mmu_cache_if.h"
 #include "gaisler/leon3/mmucache/mmu_if.h"
 #include "gaisler/leon3/mmucache/mem_if.h"
-#include "core/common/verbose.h"
-#include "core/common/vendian.h"
+#include "core/base/verbose.h"
+#include "core/base/vendian.h"
 #include "gaisler/leon3/mmucache/defines.h"
 
 class tlb_adaptor : public DefaultBase, public mem_if {

@@ -14,7 +14,7 @@
 
 #ifndef  MODELS_MEMORY_STORAGE_H_
 #define MODELS_MEMORY_STORAGE_H_
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 #include "core/common/sr_registry.h"
 
 #define \

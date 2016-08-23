@@ -15,19 +15,19 @@
 #ifndef MODELS_GPTIMER_GPTIMER_H_
 #define MODELS_GPTIMER_GPTIMER_H_
 
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 #include <boost/config.hpp>
 
 #include <string>
 #include <vector>
 
 #include "gaisler/gptimer/gpcounter.h"
-#include "core/common/apbslave.h"
+#include "amba/apbslave.h"
 #include "core/common/clkdevice.h"
 #include "core/common/sr_signal.h"
 
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "core/common/sr_param.h"
 
 #undef CTRL

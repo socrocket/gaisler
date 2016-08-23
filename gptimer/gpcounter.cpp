@@ -16,7 +16,7 @@
 
 #include "gaisler/gptimer/gpcounter.h"
 #include "gaisler/gptimer/gptimer.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 GPCounter::GPCounter(GPTimer *_parent, unsigned int _nr, ModuleName name) :
   DefaultBase(name), p(_parent), nr(_nr), stopped(true), chain_run(false),

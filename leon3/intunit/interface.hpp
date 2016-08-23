@@ -38,16 +38,16 @@
 #ifndef LT_INTERFACE_HPP
 #define LT_INTERFACE_HPP
 
-#include "core/common/trapgen/ABIIf.hpp"
+#include "core/trapgen/ABIIf.hpp"
 #include "gaisler/leon3/intunit/memory.hpp"
 #include "gaisler/leon3/intunit/registers.hpp"
 #include "gaisler/leon3/intunit/alias.hpp"
 #include <boost/circular_buffer.hpp>
-#include "core/common/trapgen/instructionBase.hpp"
+#include "core/trapgen/instructionBase.hpp"
 #include <vector>
 #include <string>
-#include "core/common/trapgen/utils/trap_utils.hpp"
-#include "core/common/systemc.h"
+#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/base/systemc.h"
 
 #define FUNC_MODEL
 #define LT_IF

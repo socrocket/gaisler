@@ -16,16 +16,16 @@
 #ifndef MODELS_AHBCTRL_AHBCTRL_H_
 #define MODELS_AHBCTRL_AHBCTRL_H_
 
-#include "core/common/amba.h"
-#include "core/common/base.h"
+#include "amba/amba.h"
+#include "core/base/base.h"
 #include "core/common/sr_param.h"
 #include <tlm.h>
 #include <map>
 
-#include "core/common/ahbdevice.h"
+#include "amba/ahbdevice.h"
 #include "core/common/clkdevice.h"
 #include "core/common/sr_signal.h"
-#include "core/common/msclogger.h"
+#include "core/utils/msclogger.h"
 #include "core/common/socrocket.h"
 #include "core/common/sr_param.h"
 

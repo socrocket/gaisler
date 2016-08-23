@@ -39,7 +39,7 @@
 #define LT_REGISTERS_HPP
 
 #include <ostream>
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 #include "core/common/sc_register.h"
 
 #define FUNC_MODEL

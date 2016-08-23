@@ -20,8 +20,8 @@
 #include <string>
 
 #include "gaisler/apbuart/io_if.h"
-#include "core/common/base.h"
-#include "core/common/verbose.h"
+#include "core/base/base.h"
+#include "core/base/verbose.h"
 #include "core/common/sr_report.h"
 
 class TcpIO : public BaseModule<DefaultBase>, public io_if {

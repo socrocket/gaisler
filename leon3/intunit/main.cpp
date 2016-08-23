@@ -48,17 +48,17 @@
 #include <boost/program_options.hpp>
 #include <boost/timer.hpp>
 #include <boost/filesystem.hpp>
-#include "core/common/trapgen/misc/SparseMemoryLT.hpp"
+#include "core/trapgen/misc/SparseMemoryLT.hpp"
 #include "gaisler/leon3/intunit/processor.hpp"
 #include "gaisler/leon3/intunit/instructions.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
-#include "core/common/trapgen/elfloader/elfFrontend.hpp"
-#include "core/common/trapgen/elfloader/execLoader.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/elfloader/elfFrontend.hpp"
+#include "core/trapgen/elfloader/execLoader.hpp"
 #include <stdexcept>
-#include "core/common/trapgen/debugger/GDBStub.hpp"
-#include "core/common/trapgen/profiler/profiler.hpp"
-#include "core/common/trapgen/osEmulator/osEmulator.hpp"
-#include "core/common/systemc.h"
+#include "core/trapgen/debugger/GDBStub.hpp"
+#include "core/trapgen/profiler/profiler.hpp"
+#include "core/trapgen/osEmulator/osEmulator.hpp"
+#include "core/base/systemc.h"
 
 #include "gaisler/leon3/intunit/irqGenerator.hpp"
 

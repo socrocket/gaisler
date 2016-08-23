@@ -15,7 +15,7 @@
 ///
 
 #include "gaisler/leon3/mmucache/localram.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 /// constructor
 localram::localram(ModuleName name,

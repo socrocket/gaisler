@@ -12,8 +12,8 @@
 #ifndef MODELS_RESET_IRQMP_RESET_IRQMP_H_
 #define MODELS_RESET_IRQMP_RESET_IRQMP_H_
 
-#include "core/common/systemc.h"
-#include "core/common/base.h"
+#include "core/base/systemc.h"
+#include "core/base/base.h"
 #include "core/common/sr_signal.h"
 
 class ResetIrqmp : public DefaultBase {

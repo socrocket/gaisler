@@ -17,8 +17,8 @@
 #include <map>
 #include <utility>
 #include "gaisler/ahbctrl/ahbctrl.h"
-#include "core/common/vendian.h"
-#include "core/common/verbose.h"
+#include "core/base/vendian.h"
+#include "core/base/verbose.h"
 #include "core/common/sr_registry.h"
 
 SR_HAS_MODULE(AHBCtrl);

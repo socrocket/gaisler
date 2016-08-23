@@ -23,7 +23,7 @@
 #include <math.h>
 
 // AHB TLM master socket and protocol implementation
-#include "core/common/ahbmaster.h"
+#include "amba/ahbmaster.h"
 // Timing interface (specify clock period)
 #include "core/common/clkdevice.h"
 
@@ -31,7 +31,7 @@
 #include "core/common/sr_signal.h"
 
 // Verbosity kit - for output formatting and filtering
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 /// Definition of class AHBIn
 class AHBIn : public AHBMaster<>, public CLKDevice {

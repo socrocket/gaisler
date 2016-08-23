@@ -37,9 +37,9 @@
 
 
 #include "gaisler/leon3/intunit/memory.hpp"
-#include "core/common/trapgen/ToolsIf.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
-#include "core/common/systemc.h"
+#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/base/systemc.h"
 
 using namespace leon3_funclt_trap;
 using namespace trap;

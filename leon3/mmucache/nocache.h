@@ -16,11 +16,11 @@
 #ifndef __NOCACHE_H_
 #define __NOCACHE_H_
 
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 #include "core/common/sr_signal.h"
 
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "gaisler/leon3/mmucache/cache_if.h"
 #include "gaisler/leon3/mmucache/mem_if.h"
 

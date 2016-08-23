@@ -16,8 +16,8 @@
 #include <fstream>
 #include <iostream>
 #include "gaisler/ahbprof/ahbprof.h"
-#include "core/common/vendian.h"
-#include "core/common/verbose.h"
+#include "core/base/vendian.h"
+#include "core/base/verbose.h"
 
 SR_HAS_MODULE(AHBProf);
 

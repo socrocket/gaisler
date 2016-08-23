@@ -21,19 +21,19 @@
 #include <stdio.h>
 #include <string>
 #include <sstream>
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 #include "core/common/sr_param.h"
 #include "core/common/scireg.h"
 
 #include "math.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "gaisler/leon3/mmucache/defines.h"
 #include "gaisler/leon3/mmucache/cache_if.h"
 #include "gaisler/leon3/mmucache/mmu_cache_if.h"
 #include "gaisler/leon3/mmucache/tlb_adaptor.h"
 #include "gaisler/leon3/mmucache/mem_if.h"
-#include "core/common/vendian.h"
+#include "core/base/vendian.h"
 
 // implementation of cache memory and controller
 /// @brief virtual cache model, contain common functionality of instruction and data cache

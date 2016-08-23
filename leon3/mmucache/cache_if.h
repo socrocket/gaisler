@@ -15,7 +15,7 @@
 #ifndef __CACHE_IF_H__
 #define __CACHE_IF_H__
 
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 #include "core/common/socrocket.h"
 #include "gaisler/leon3/mmucache/mem_if.h"
 

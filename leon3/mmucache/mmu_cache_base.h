@@ -19,8 +19,8 @@
 #define __MMU_CACHE_BASE_H__
 
 #include "core/common/sr_param.h"
-#include "core/common/systemc.h"
-#include "core/common/amba.h"
+#include "core/base/systemc.h"
+#include "amba/amba.h"
 //#include <tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo.h>
 
 #include <math.h>
@@ -30,10 +30,10 @@
 
 #include "core/common/socrocket.h"
 #include "core/common/sr_signal.h"
-#include "core/common/ahbmaster.h"
+#include "amba/ahbmaster.h"
 #include "core/common/clkdevice.h"
 
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "gaisler/leon3/mmucache/cache_if.h"
 #include "gaisler/leon3/mmucache/ivectorcache.h"
 #include "gaisler/leon3/mmucache/dvectorcache.h"

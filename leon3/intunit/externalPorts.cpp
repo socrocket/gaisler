@@ -38,12 +38,12 @@
 
 #include "gaisler/leon3/intunit/externalPorts.hpp"
 #include "gaisler/leon3/intunit/memory.hpp"
-#include "core/common/trapgen/ToolsIf.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 #include <tlm.h>
 #include <tlm_utils/simple_initiator_socket.h>
 #include <tlm_utils/tlm_quantumkeeper.h>
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 
 using namespace leon3_funclt_trap;
 void leon3_funclt_trap::TLMMemory::setDebugger( MemoryToolsIf< unsigned int > * debugger \

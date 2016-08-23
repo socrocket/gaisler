@@ -39,15 +39,15 @@
 #define LT_EXTERNALPORTS_HPP
 
 #include "gaisler/leon3/intunit/memory.hpp"
-#include "core/common/systemc.h"
-#include "core/common/trapgen/ToolsIf.hpp"
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/base/systemc.h"
+#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 #include <tlm.h>
 #include <tlm_utils/simple_initiator_socket.h>
 #include <tlm_utils/tlm_quantumkeeper.h>
 #include "gaisler/leon3/mmucache/icio_payload_extension.h"
 #include "gaisler/leon3/mmucache/dcio_payload_extension.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 #define FUNC_MODEL
 #define LT_IF

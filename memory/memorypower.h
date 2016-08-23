@@ -18,14 +18,14 @@
 
 #include "core/common/sr_param.h"
 #include <greensocket/target/single_socket.h>
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 #include <tlm.h>
 
 #include "gaisler/memory/basememory.h"
 #include "core/common/clkdevice.h"
 #include "core/common/memdevice.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 
 // template<class BASE = DefaultBase>
 class MemoryPower : public MEMDevice, public CLKDevice, public BaseMemory {

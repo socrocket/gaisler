@@ -18,7 +18,7 @@
 #include <boost/filesystem.hpp>
 #include "gaisler/leon3/leon3.h"
 #include "core/common/sr_report.h"
-#include "core/common/vendian.h"
+#include "core/base/vendian.h"
 
 SR_HAS_MODULE(Leon3);
 

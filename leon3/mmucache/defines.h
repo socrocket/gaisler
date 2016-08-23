@@ -19,7 +19,7 @@
 #include "core/common/scireg.h"
 #include "core/common/sr_register.h"
 #include "core/common/sr_report.h"
-#include "core/common/base.h"
+#include "core/base/base.h"
 
 // Structure of a cache tag
 // ========================

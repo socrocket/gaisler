@@ -38,9 +38,9 @@
 #ifndef LT_IRQPORTS_HPP
 #define LT_IRQPORTS_HPP
 
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 
-#include "core/common/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/utils/trap_utils.hpp"
 
 #include "core/common/sr_signal.h"
 

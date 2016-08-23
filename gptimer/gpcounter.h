@@ -18,8 +18,8 @@
 #define MODELS_GPTIMER_GPCOUNTER_H_
 
 #include "core/common/sr_param.h"
-#include "core/common/base.h"
-#include "core/common/systemc.h"
+#include "core/base/base.h"
+#include "core/base/systemc.h"
 
 #include "core/common/sr_signal.h"
 

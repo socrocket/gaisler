@@ -14,7 +14,7 @@
 #ifndef _SCGENMOD_mmu_cache_wrapper_
 #define _SCGENMOD_mmu_cache_wrapper_
 
-#include "core/common/systemc.h"
+#include "core/base/systemc.h"
 #include "ahb_adapter_types.h"
 
 struct cctrltype {

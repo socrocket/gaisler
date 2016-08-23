@@ -16,7 +16,7 @@
 ///
 
 #include "gaisler/leon3/mmucache/mmu.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "gaisler/leon3/intunit/instructions.hpp"
 
 mmu::mmu(ModuleName name, // sysc module name,

@@ -21,7 +21,7 @@
 
 #include "gaisler/ahbmem/ahbmem.h"
 #include "core/common/sr_report.h"
-#include "core/common/verbose.h"
+#include "core/base/verbose.h"
 #include "core/common/sr_registry.h"
 
 SR_HAS_MODULE(AHBMem);
