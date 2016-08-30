@@ -48,7 +48,7 @@ def build(self):
         includes = self.top_dir,
         defines = 'ENABLE_HISTORY', 
         use          = [
-                        'trap',
+                        'sr_iss', 'trap',
                         'sr_registry', 'sr_register', 'sr_report', 'sr_signal', 'common',
                         'AMBA', 'GREENSOCS', 'TLM', 'SYSTEMC', 'BOOST'
                        ],
