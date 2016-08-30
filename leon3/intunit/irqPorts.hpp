@@ -39,9 +39,6 @@
 #define LT_IRQPORTS_HPP
 
 #include "core/base/systemc.h"
-
-#include "core/trapgen/utils/trap_utils.hpp"
-
 #include "core/common/sr_signal.h"
 
 #define FUNC_MODEL

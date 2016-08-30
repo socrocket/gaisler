@@ -123,7 +123,7 @@ Leon3::Leon3(
     GC_REGISTER_TYPED_PARAM_CALLBACK(&g_gdb, gs::cnf::post_write, Leon3, g_gdb_callback);
     GC_REGISTER_TYPED_PARAM_CALLBACK(&g_args, gs::cnf::post_write, Leon3, g_args_callback);
     Leon3::init_generics();
-    cpu.toolManager.addTool(m_intrinsics);
+    cpu.toolManager.add_tool(m_intrinsics);
 }
 
 Leon3::~Leon3() {
@@ -203,8 +203,8 @@ gs::cnf::callback_return_type Leon3::g_gdb_callback(gs::gs_param_base& changed_p
   int port = 0;
   changed_param.getValue(port);
   if(port) {
-    debugger = new GDBStub<uint32_t>(*(cpu.abiIf));
-    cpu.toolManager.addTool(*debugger);
+    debugger = new GDBStub<uint32_t>(cpu.abiIf);
+    cpu.toolManager.add_tool(*debugger);
     debugger->initialize(port);
   } else {
     //delete debugger;
@@ -423,7 +423,7 @@ void Leon3::write_dword(
     swapEndianess(datum2);
     datum = datum1 | (((sc_dt::uint64)datum2) << 32);
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     sc_time delay = this->cpu.quantKeeper.get_local_time();
@@ -463,7 +463,7 @@ void Leon3::write_word(
     swapEndianess(datum);
     if(this->debugger != NULL){
         v::debug << name() << "Debugger" << endl;
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
     sc_time delay = this->cpu.quantKeeper.get_local_time();
     unsigned int debug = 0;
@@ -506,7 +506,7 @@ void Leon3::write_half(
     //is turned
     swapEndianess(datum);
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     sc_time delay = this->cpu.quantKeeper.get_local_time();
@@ -542,7 +542,7 @@ void Leon3::write_byte(
     uint32_t lock) throw() {
 
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
     sc_time delay = this->cpu.quantKeeper.get_local_time();
     uint32_t debug = 0;

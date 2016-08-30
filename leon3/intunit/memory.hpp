@@ -38,8 +38,8 @@
 #ifndef LT_MEMORY_HPP
 #define LT_MEMORY_HPP
 
-#include "core/trapgen/ToolsIf.hpp"
-#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/common/tools_if.hpp"
+#include "core/trapgen/common/report.hpp"
 #include "core/base/systemc.h"
 
 #include "gaisler/leon3/mmucache/cpu_if.h"
@@ -90,7 +90,7 @@ namespace leon3_funclt_trap{
                 THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
             }
             if(this->debugger != NULL){
-                this->debugger->notifyAddress(address, sizeof(datum));
+                this->debugger->notify_address(address, sizeof(datum));
             }
 
             //Now the code for endianess conversion: the processor is always modeled

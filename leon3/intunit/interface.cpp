@@ -36,39 +36,38 @@
 
 
 
+#include "core/trapgen/modules/abi_if.hpp"
 #include "gaisler/leon3/intunit/interface.hpp"
-#include "core/trapgen/ABIIf.hpp"
 #include "gaisler/leon3/intunit/memory.hpp"
 #include "gaisler/leon3/intunit/registers.hpp"
 #include "gaisler/leon3/intunit/alias.hpp"
 #include <boost/circular_buffer.hpp>
-#include "core/trapgen/instructionBase.hpp"
+#include "core/trapgen/modules/instruction.hpp"
 #include <vector>
 #include <string>
-#include "core/trapgen/utils/trap_utils.hpp"
 #include "core/base/systemc.h"
 
 using namespace leon3_funclt_trap;
 using namespace trap;
-bool leon3_funclt_trap::LEON3_ABIIf::isLittleEndian() const throw(){
+bool leon3_funclt_trap::LEON3_ABIIf::is_little_endian() const throw(){
     return false;
 }
 
-int leon3_funclt_trap::LEON3_ABIIf::getProcessorID() const throw(){
+int leon3_funclt_trap::LEON3_ABIIf::get_processor_id() const throw(){
     return ((ASR[17] & 0xF0000000) >> 28);
 }
 
-bool leon3_funclt_trap::LEON3_ABIIf::isInstrExecuting() const throw(){
+bool leon3_funclt_trap::LEON3_ABIIf::is_executing_instr() const throw(){
     return this->instrExecuting;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::waitInstrEnd() const throw(){
+void leon3_funclt_trap::LEON3_ABIIf::wait_instr_end() const throw(){
     if(this->instrExecuting){
         wait(this->instrEndEvent);
     }
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::preCall() throw(){
+void leon3_funclt_trap::LEON3_ABIIf::pre_call() throw(){
 
     unsigned int newCwp = ((unsigned int)(PSR[key_CWP] - 1)) % 8;
     PSR.immediateWrite((PSR & 0xFFFFFFE0) | newCwp);
@@ -79,7 +78,7 @@ void leon3_funclt_trap::LEON3_ABIIf::preCall() throw(){
     }
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::postCall() throw(){
+void leon3_funclt_trap::LEON3_ABIIf::post_call() throw(){
 
     unsigned int newCwp = ((unsigned int)(PSR[key_CWP] + 1)) % 8;
     PSR.immediateWrite((PSR & 0xFFFFFFE0) | newCwp);
@@ -90,16 +89,16 @@ void leon3_funclt_trap::LEON3_ABIIf::postCall() throw(){
     }
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::returnFromCall() throw(){
+void leon3_funclt_trap::LEON3_ABIIf::return_from_call() throw(){
     PC.immediateWrite(LR + 8);
     NPC.immediateWrite(LR + 12);
 }
 
-bool leon3_funclt_trap::LEON3_ABIIf::isRoutineEntry( const InstructionBase * instr \
+bool leon3_funclt_trap::LEON3_ABIIf::is_routine_entry( const InstructionBase * instr \
     ) throw(){
     std::vector<std::string> nextNames = this->routineEntrySequence[this->routineEntryState];
     std::vector<std::string>::const_iterator namesIter, namesEnd;
-    std::string curName = instr->getInstructionName();
+    std::string curName = instr->get_name();
     for(namesIter = nextNames.begin(), namesEnd = nextNames.end(); namesIter != namesEnd; \
         namesIter++){
         if(curName == *namesIter || *namesIter == ""){
@@ -115,11 +114,11 @@ bool leon3_funclt_trap::LEON3_ABIIf::isRoutineEntry( const InstructionBase * ins
     return false;
 }
 
-bool leon3_funclt_trap::LEON3_ABIIf::isRoutineExit( const InstructionBase * instr \
+bool leon3_funclt_trap::LEON3_ABIIf::is_routine_exit( const InstructionBase * instr \
     ) throw(){
     std::vector<std::string> nextNames = this->routineExitSequence[this->routineExitState];
     std::vector<std::string>::const_iterator namesIter, namesEnd;
-    std::string curName = instr->getInstructionName();
+    std::string curName = instr->get_name();
     for(namesIter = nextNames.begin(), namesEnd = nextNames.end(); namesIter != namesEnd; \
         namesIter++){
         if(curName == *namesIter || *namesIter == ""){
@@ -135,7 +134,7 @@ bool leon3_funclt_trap::LEON3_ABIIf::isRoutineExit( const InstructionBase * inst
     return false;
 }
 
-unsigned char * leon3_funclt_trap::LEON3_ABIIf::getState() const throw(){
+unsigned char * leon3_funclt_trap::LEON3_ABIIf::get_state() const throw(){
     unsigned char * curState = new unsigned char[696];
     unsigned char * curStateTemp = curState;
     *((unsigned int *)curStateTemp) = this->PSR.readNewValue();
@@ -487,7 +486,7 @@ unsigned char * leon3_funclt_trap::LEON3_ABIIf::getState() const throw(){
     return curState;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setState( unsigned char * state ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_state( unsigned char * state ) throw(){
     unsigned char * curStateTemp = state;
     this->PSR.immediateWrite(*((unsigned int *)curStateTemp));
     curStateTemp += 4;
@@ -837,58 +836,58 @@ void leon3_funclt_trap::LEON3_ABIIf::setState( unsigned char * state ) throw(){
     curStateTemp += 4;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setExitValue( unsigned int value ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_exit_value( unsigned int value ) throw(){
   this->exitValue = value;
 }
-unsigned int leon3_funclt_trap::LEON3_ABIIf::getExitValue() throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::get_exit_value() throw(){
   return this->exitValue;
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::getCodeLimit(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::get_code_limit(){
     return this->PROGRAM_LIMIT;
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readLR() const throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_LR() const throw(){
     return this->LR;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setLR( const unsigned int & newValue ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_LR( const unsigned int & newValue ) throw(){
     this->LR.immediateWrite(newValue);
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readPC() const throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_PC() const throw(){
     return this->PC;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setPC( const unsigned int & newValue ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_PC( const unsigned int & newValue ) throw(){
     this->PC.immediateWrite(newValue);
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readSP() const throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_SP() const throw(){
     return this->SP;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setSP( const unsigned int & newValue ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_SP( const unsigned int & newValue ) throw(){
     this->SP.immediateWrite(newValue);
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readFP() const throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_FP() const throw(){
     return this->FP;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setFP( const unsigned int & newValue ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_FP( const unsigned int & newValue ) throw(){
     this->FP.immediateWrite(newValue);
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readRetVal() const throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_return_value() const throw(){
     return this->REGS[24];
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setRetVal( const unsigned int & newValue ) throw(){
+void leon3_funclt_trap::LEON3_ABIIf::set_return_value( const unsigned int & newValue ) throw(){
     this->REGS[24].immediateWrite(newValue);
 }
 
-std::vector< unsigned int > leon3_funclt_trap::LEON3_ABIIf::readArgs() const throw(){
+std::vector< unsigned int > leon3_funclt_trap::LEON3_ABIIf::read_args() const throw(){
     std::vector< unsigned int > args;
     args.push_back(this->REGS[24]);
     args.push_back(this->REGS[25]);
@@ -899,7 +898,7 @@ std::vector< unsigned int > leon3_funclt_trap::LEON3_ABIIf::readArgs() const thr
     return args;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setArgs( const std::vector< unsigned int > & \
+void leon3_funclt_trap::LEON3_ABIIf::set_args( const std::vector< unsigned int > & \
     args ) throw(){
     if(args.size() > 6){
         THROW_EXCEPTION("ABI of processor supports up to 6 arguments: " << args.size() << \
@@ -932,7 +931,7 @@ void leon3_funclt_trap::LEON3_ABIIf::setArgs( const std::vector< unsigned int > 
     }
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readGDBReg( const unsigned int & gdbId \
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_gdb_reg( const unsigned int & gdbId \
     ) const throw(){
     switch(gdbId){
         case 0:{
@@ -1055,11 +1054,11 @@ unsigned int leon3_funclt_trap::LEON3_ABIIf::readGDBReg( const unsigned int & gd
     }
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::nGDBRegs() const throw(){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::num_gdb_regs() const throw(){
     return 70;
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::setGDBReg( const unsigned int & newValue, const \
+void leon3_funclt_trap::LEON3_ABIIf::set_gdb_reg( const unsigned int & newValue, const \
     unsigned int & gdbId ) throw(){
     switch(gdbId){
         case 0:{
@@ -1182,21 +1181,21 @@ void leon3_funclt_trap::LEON3_ABIIf::setGDBReg( const unsigned int & newValue, c
     }
 }
 
-unsigned int leon3_funclt_trap::LEON3_ABIIf::readMem( const unsigned int & address ){
+unsigned int leon3_funclt_trap::LEON3_ABIIf::read_mem( const unsigned int & address ){
     return this->dataMem.read_word_dbg(address);
 }
 
-unsigned char leon3_funclt_trap::LEON3_ABIIf::readCharMem( const unsigned int & address \
+unsigned char leon3_funclt_trap::LEON3_ABIIf::read_char_mem( const unsigned int & address \
     ){
     return this->dataMem.read_byte_dbg(address);
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::writeMem( const unsigned int & address, unsigned \
+void leon3_funclt_trap::LEON3_ABIIf::write_mem( const unsigned int & address, unsigned \
     int datum ){
     this->dataMem.write_word_dbg(address, datum);
 }
 
-void leon3_funclt_trap::LEON3_ABIIf::writeCharMem( const unsigned int & address, \
+void leon3_funclt_trap::LEON3_ABIIf::write_char_mem( const unsigned int & address, \
     unsigned char datum ){
     this->dataMem.write_byte_dbg(address, datum);
 }

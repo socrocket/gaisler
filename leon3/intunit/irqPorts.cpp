@@ -38,7 +38,6 @@
 
 #include "core/base/systemc.h"
 #include "gaisler/leon3/intunit/irqPorts.hpp"
-#include "core/trapgen/utils/trap_utils.hpp"
 
 #include "core/common/sr_signal.h"
 #include "core/base/verbose.h"

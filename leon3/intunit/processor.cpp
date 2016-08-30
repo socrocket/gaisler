@@ -37,11 +37,10 @@
 
 
 #include "gaisler/leon3/intunit/processor.hpp"
-#include "core/trapgen/utils/customExceptions.hpp"
 #include "gaisler/leon3/intunit/instructions.hpp"
 #include "gaisler/leon3/intunit/decoder.hpp"
 #include "gaisler/leon3/intunit/interface.hpp"
-#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/common/tools_if.hpp"
 #include <tlm_utils/tlm_quantumkeeper.h>
 #include "gaisler/leon3/intunit/registers.hpp"
 #include "gaisler/leon3/intunit/alias.hpp"
@@ -50,7 +49,7 @@
 #include <iostream>
 #include <fstream>
 #include <boost/circular_buffer.hpp>
-#include "core/trapgen/instructionBase.hpp"
+#include "core/trapgen/modules/instruction.hpp"
 #include "gaisler/leon3/intunit/irqPorts.hpp"
 #include "gaisler/leon3/intunit/externalPins.hpp"
 #include <string>
@@ -79,7 +78,7 @@ void leon3_funclt_trap::Processor_leon3_funclt::mainLoop() {
           while(irqAck.stopped) {
             //if(sc_time_stamp()>sc_time(0, SC_NS)) {
               //wait(irqAck.start);
-              this->toolManager.newIssue(firstPC, firstinstr);
+              this->toolManager.issue(firstPC, firstinstr);
               wait(100, SC_NS);
             //}
           }
@@ -139,13 +138,13 @@ void leon3_funclt_trap::Processor_leon3_funclt::mainLoop() {
                 if (this->historyEnabled) {
                     srInfo()
                         ("Address",curPC)
-                        ("Name",curInstrPtr->getInstructionName())
-                        ("Mnemonic",curInstrPtr->getMnemonic())
+                        ("Name",curInstrPtr->get_name())
+                        ("Mnemonic",curInstrPtr->get_mnemonic())
                         ("Instruction History");
                 }
                 try {
                     #ifndef DISABLE_TOOLS
-                    if (!(this->toolManager.newIssue(curPC, curInstrPtr))) {
+                    if (!(this->toolManager.issue(curPC, curInstrPtr))) {
                         #endif
                         numCycles = curInstrPtr->behavior();
                         //curInstrPtr->behavior(); // Replacement for ^^

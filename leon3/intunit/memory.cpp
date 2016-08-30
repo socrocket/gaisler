@@ -37,8 +37,7 @@
 
 
 #include "gaisler/leon3/intunit/memory.hpp"
-#include "core/trapgen/ToolsIf.hpp"
-#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/common/tools_if.hpp"
 #include "core/base/systemc.h"
 
 using namespace leon3_funclt_trap;
@@ -217,7 +216,7 @@ void leon3_funclt_trap::LocalMemory::write_dword( const unsigned int & address,
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     #ifdef LITTLE_ENDIAN_BO
@@ -243,7 +242,7 @@ void leon3_funclt_trap::LocalMemory::write_half( const unsigned int & address,
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     //Now the code for endianess conversion: the processor is always modeled
@@ -268,7 +267,7 @@ void leon3_funclt_trap::LocalMemory::write_byte( const unsigned int & address,
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
 
@@ -281,7 +280,7 @@ void leon3_funclt_trap::LocalMemory::write_dword_dbg( const unsigned int & addre
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     #ifdef LITTLE_ENDIAN_BO
@@ -301,7 +300,7 @@ void leon3_funclt_trap::LocalMemory::write_word_dbg( const unsigned int & addres
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     //Now the code for endianess conversion: the processor is always modeled
@@ -323,7 +322,7 @@ void leon3_funclt_trap::LocalMemory::write_half_dbg( const unsigned int & addres
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
     //Now the code for endianess conversion: the processor is always modeled
@@ -345,7 +344,7 @@ void leon3_funclt_trap::LocalMemory::write_byte_dbg( const unsigned int & addres
         THROW_ERROR("Address " << std::hex << std::showbase << address << " out of memory");
     }
     if(this->debugger != NULL){
-        this->debugger->notifyAddress(address, sizeof(datum));
+        this->debugger->notify_address(address, sizeof(datum));
     }
 
 

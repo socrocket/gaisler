@@ -1,8 +1,7 @@
 #ifndef GAISLER_LEON3_MMU_CACHE_CPU_IF_H
 #define GAISLER_LEON3_MMU_CACHE_CPU_IF_H
 
-#include "core/trapgen/ToolsIf.hpp"
-#include "core/trapgen/utils/trap_utils.hpp"
+#include "core/trapgen/common/tools_if.hpp"
 #include "core/base/systemc.h"
 
 class cpu_if {

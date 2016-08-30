@@ -36,7 +36,7 @@
 
 // LEON3
 #include "gaisler/leon3/intunit/processor.hpp"
-#include "core/trapgen/debugger/GDBStub.hpp"
+#include "core/trapgen/debugger/gdb_stub.hpp"
 #include "core/sr_iss/intrinsics/intrinsicmanager.h"
 
 /// @addtogroup mmu_cache MMU_Cache

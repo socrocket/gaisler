@@ -35,7 +35,6 @@
 \***************************************************************************/
 
 #include "gaisler/leon3/intunit/externalPins.hpp"
-#include "core/trapgen/utils/trap_utils.hpp"
 #include "core/common/sr_report.h"
 #include "core/base/verbose.h"
 

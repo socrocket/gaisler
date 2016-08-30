@@ -39,11 +39,10 @@
 #define LT_PROCESSOR_HPP
 
 #include "core/common/sr_param.h"
-#include "core/trapgen/utils/customExceptions.hpp"
 #include "gaisler/leon3/intunit/instructions.hpp"
 #include "gaisler/leon3/intunit/decoder.hpp"
 #include "gaisler/leon3/intunit/interface.hpp"
-#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/common/tools_if.hpp"
 #include <tlm_utils/tlm_quantumkeeper.h>
 #include "gaisler/leon3/intunit/registers.hpp"
 #include "gaisler/leon3/intunit/alias.hpp"
@@ -51,7 +50,7 @@
 #include <iostream>
 #include <fstream>
 #include <boost/circular_buffer.hpp>
-#include "core/trapgen/instructionBase.hpp"
+#include "core/trapgen/modules/instruction.hpp"
 #include "core/base/vmap.h"
 
 #include "gaisler/leon3/intunit/irqPorts.hpp"

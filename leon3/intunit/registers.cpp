@@ -34,11 +34,9 @@
  *
 \***************************************************************************/
 
-
-
+#include "core/trapgen/common/report.hpp"
 #include "gaisler/leon3/intunit/registers.hpp"
 #include <ostream>
-#include "core/trapgen/utils/trap_utils.hpp"
 
 using namespace leon3_funclt_trap;
 InnerField & leon3_funclt_trap::InnerField::operator =( const InnerField & other \

@@ -38,15 +38,14 @@
 #ifndef LT_INTERFACE_HPP
 #define LT_INTERFACE_HPP
 
-#include "core/trapgen/ABIIf.hpp"
+#include "core/trapgen/modules/abi_if.hpp"
 #include "gaisler/leon3/intunit/memory.hpp"
 #include "gaisler/leon3/intunit/registers.hpp"
 #include "gaisler/leon3/intunit/alias.hpp"
 #include <boost/circular_buffer.hpp>
-#include "core/trapgen/instructionBase.hpp"
+#include "core/trapgen/modules/instruction.hpp"
 #include <vector>
 #include <string>
-#include "core/trapgen/utils/trap_utils.hpp"
 #include "core/base/systemc.h"
 
 #define FUNC_MODEL
@@ -86,39 +85,39 @@ namespace leon3_funclt_trap{
             & GLOBAL, Reg32_3 * WINREGS, Reg32_3 * ASR, Alias & FP, Alias & LR, Alias & SP, Alias \
             & PCR, Alias * REGS, bool & instrExecuting, sc_event & instrEndEvent );
 
-        bool isLittleEndian() const throw();
-        int getProcessorID() const throw();
-        bool isInstrExecuting() const throw();
-        void waitInstrEnd() const throw();
-        void preCall() throw();
-        void postCall() throw();
-        void returnFromCall() throw();
-        bool isRoutineEntry( const InstructionBase * instr ) throw();
-        bool isRoutineExit( const InstructionBase * instr ) throw();
-        unsigned char * getState() const throw();
-        void setState( unsigned char * state ) throw();
-        void setExitValue(unsigned int value) throw();
-        unsigned int getExitValue() throw();
-        unsigned int getCodeLimit();
-        unsigned int readLR() const throw();
-        void setLR( const unsigned int & newValue ) throw();
-        unsigned int readPC() const throw();
-        void setPC( const unsigned int & newValue ) throw();
-        unsigned int readSP() const throw();
-        void setSP( const unsigned int & newValue ) throw();
-        unsigned int readFP() const throw();
-        void setFP( const unsigned int & newValue ) throw();
-        unsigned int readRetVal() const throw();
-        void setRetVal( const unsigned int & newValue ) throw();
-        std::vector< unsigned int > readArgs() const throw();
-        void setArgs( const std::vector< unsigned int > & args ) throw();
-        unsigned int readGDBReg( const unsigned int & gdbId ) const throw();
-        unsigned int nGDBRegs() const throw();
-        void setGDBReg( const unsigned int & newValue, const unsigned int & gdbId ) throw();
-        unsigned int readMem( const unsigned int & address );
-        unsigned char readCharMem( const unsigned int & address );
-        void writeMem( const unsigned int & address, unsigned int datum );
-        void writeCharMem( const unsigned int & address, unsigned char datum );
+        bool is_little_endian() const throw();
+        int get_processor_id() const throw();
+        bool is_executing_instr() const throw();
+        void wait_instr_end() const throw();
+        void pre_call() throw();
+        void post_call() throw();
+        void return_from_call() throw();
+        bool is_routine_entry( const InstructionBase * instr ) throw();
+        bool is_routine_exit( const InstructionBase * instr ) throw();
+        unsigned char * get_state() const throw();
+        void set_state( unsigned char * state ) throw();
+        void set_exit_value(unsigned int value) throw();
+        unsigned int get_exit_value() throw();
+        unsigned int get_code_limit();
+        unsigned int read_LR() const throw();
+        void set_LR( const unsigned int & newValue ) throw();
+        unsigned int read_PC() const throw();
+        void set_PC( const unsigned int & newValue ) throw();
+        unsigned int read_SP() const throw();
+        void set_SP( const unsigned int & newValue ) throw();
+        unsigned int read_FP() const throw();
+        void set_FP( const unsigned int & newValue ) throw();
+        unsigned int read_return_value() const throw();
+        void set_return_value( const unsigned int & newValue ) throw();
+        std::vector< unsigned int > read_args() const throw();
+        void set_args( const std::vector< unsigned int > & args ) throw();
+        unsigned int read_gdb_reg( const unsigned int & gdbId ) const throw();
+        unsigned int num_gdb_regs() const throw();
+        void set_gdb_reg( const unsigned int & newValue, const unsigned int & gdbId ) throw();
+        unsigned int read_mem( const unsigned int & address );
+        unsigned char read_char_mem( const unsigned int & address );
+        void write_mem( const unsigned int & address, unsigned int datum );
+        void write_char_mem( const unsigned int & address, unsigned char datum );
         MemoryInterface& get_data_memory();
         virtual ~LEON3_ABIIf();
     };

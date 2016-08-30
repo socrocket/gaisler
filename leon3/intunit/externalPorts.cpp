@@ -38,7 +38,7 @@
 
 #include "gaisler/leon3/intunit/externalPorts.hpp"
 #include "gaisler/leon3/intunit/memory.hpp"
-#include "core/trapgen/ToolsIf.hpp"
+#include "core/trapgen/common/tools_if.hpp"
 #include "core/trapgen/utils/trap_utils.hpp"
 #include <tlm.h>
 #include <tlm_utils/simple_initiator_socket.h>
