@@ -27,7 +27,7 @@
 #include "gaisler/memory/memorypower.h"
 #include "core/base/verbose.h"
 #include "core/common/sr_report.h"
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 #include "gaisler/memory/ext_erase.h"
 
 /// @brief This class models a generic memory. Depending on the configuration

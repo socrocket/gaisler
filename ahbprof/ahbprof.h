@@ -22,7 +22,7 @@
 #include <map>
 
 #include "amba/ahbslave.h"
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 #include "core/utils/msclogger.h"
 
 struct prof_info {

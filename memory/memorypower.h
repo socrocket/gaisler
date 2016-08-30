@@ -23,8 +23,8 @@
 #include <tlm.h>
 
 #include "gaisler/memory/basememory.h"
-#include "core/common/clkdevice.h"
-#include "core/common/memdevice.h"
+#include "core/base/clkdevice.h"
+#include "core/base/memdevice.h"
 #include "core/base/verbose.h"
 
 // template<class BASE = DefaultBase>

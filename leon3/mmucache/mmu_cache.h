@@ -31,7 +31,7 @@
 #include "core/common/socrocket.h"
 #include "core/common/sr_signal.h"
 #include "amba/ahbmaster.h"
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 
 #include "core/base/verbose.h"
 #include "gaisler/leon3/mmucache/mmu_cache_base.h"

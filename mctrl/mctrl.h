@@ -26,8 +26,8 @@
 
 #include "amba/ahbslave.h"
 #include "amba/apbslave.h"
-#include "core/common/clkdevice.h"
-#include "core/common/memdevice.h"
+#include "core/base/clkdevice.h"
+#include "core/base/memdevice.h"
 #include "gaisler/memory/ext_erase.h"
 #include "core/base/vendian.h"
 #include "core/base/verbose.h"

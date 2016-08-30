@@ -23,7 +23,7 @@
 #include "amba/ahbslave.h"
 #include "amba/ahbdevice.h"
 #include "amba/apbdevice.h"
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 #include "core/base/vmap.h"
 
 /// @addtogroup apbctrl APBCtrl

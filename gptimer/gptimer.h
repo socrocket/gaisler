@@ -24,7 +24,7 @@
 
 #include "gaisler/gptimer/gpcounter.h"
 #include "amba/apbslave.h"
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 #include "core/common/sr_signal.h"
 
 #include "core/base/verbose.h"

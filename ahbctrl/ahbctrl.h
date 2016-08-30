@@ -23,7 +23,7 @@
 #include <map>
 
 #include "amba/ahbdevice.h"
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 #include "core/common/sr_signal.h"
 #include "core/utils/msclogger.h"
 #include "core/common/socrocket.h"

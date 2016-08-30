@@ -25,7 +25,7 @@
 // AHB TLM master socket and protocol implementation
 #include "amba/ahbmaster.h"
 // Timing interface (specify clock period)
-#include "core/common/clkdevice.h"
+#include "core/base/clkdevice.h"
 
 // Signal definitions for IRQ communication
 #include "core/common/sr_signal.h"
