@@ -116,8 +116,7 @@ Leon3::Leon3(
   g_tlb_rep("tlb_rep", tlb_rep, m_generics),
   g_mmupgsz("mmupgsz", mmupgsz, m_generics),
   //g_hindex("hindex", hindex, m_generics),
-  g_args("args", m_generics),
-  g_stdout_filename("stdout_filename", "", m_generics) {
+  g_args("args", m_generics) {
     // TODO(rmeyer): This looks a lot like gs_configs!!!
 
     GC_REGISTER_TYPED_PARAM_CALLBACK(&g_gdb, gs::cnf::post_write, Leon3, g_gdb_callback);

@@ -305,9 +305,9 @@ void APBCtrl::start_of_simulation() {
   // max. 16 APB slaves allowed
   assert(num_of_bindings <= 16);
 
-  v::info << name() << "******************************************************************************* " << v::endl;
-  v::info << name() << "* APB DECODER INITIALIZATION " << v::endl;
-  v::info << name() << "* -------------------------- " << v::endl;
+  srInfo()
+    ("slaves", num_of_bindings)
+    ("APB decoder initialization");
 
   // iterate the registered slaves
   for (uint32_t i = 0; i < num_of_bindings; i++) {
@@ -321,8 +321,6 @@ void APBCtrl::start_of_simulation() {
 
     // valid slaves implement the APBDevice interface
     APBDeviceBase *slave = dynamic_cast<APBDeviceBase *>(obj);
-
-    v::info << name() << "* Slave name: " << obj->name() << v::endl;
 
     // slave is valid (implements APBDevice)
     if (slave) {
@@ -341,19 +339,23 @@ void APBCtrl::start_of_simulation() {
         uint32_t addr = slave->get_apb_base();
         uint32_t mask = slave->get_apb_mask();
 
-        v::info << name() << "* BAR with MSB addr: " << hex << addr << " and mask: " << mask << v::endl;
+        srInfo()
+          ("addr", addr)
+          ("mask", mask)
+          ("name", obj->name())
+          ("index", sbusid)
+          ("Binding Slave to APB Address");
 
         // insert slave region into memory map
         setAddressMap(i, sbusid, addr, mask);
       }
     } else {
-      v::warn << name() << "Slave bound to socket 'apb' is not a valid APBDevice." << v::endl;
+      srError()
+        ("name", obj->name())
+        ("Slave bound to socket 'apb' is not a valid APBDeviceBase (no plug & play information)!");
       assert(0);
     }
   }
-
-  // End of decoder initialization
-  v::info << name() << "******************************************************************************* " << v::endl;
 
   // Check memory map for overlaps
   if (g_mcheck) {
