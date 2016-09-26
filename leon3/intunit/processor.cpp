@@ -97,7 +97,7 @@ void leon3_funclt_trap::Processor_leon3_funclt::mainLoop() {
                 numCycles = this->IRQ_irqInstr->behavior();
                 //this->IRQ_irqInstr->behavior(); // Replacement for ^^
             }
-            catch(annull_exception &etc){
+            catch(annul_exception &etc){
               numCycles = 0;
             }
 
@@ -151,7 +151,7 @@ void leon3_funclt_trap::Processor_leon3_funclt::mainLoop() {
                         #ifndef DISABLE_TOOLS
                     }
                     #endif
-                } catch (annull_exception &etc) {
+                } catch (annul_exception &etc) {
                     numCycles = 0;
                 }
                 if (cachedInstr != instrCacheEnd) {
@@ -166,7 +166,7 @@ void leon3_funclt_trap::Processor_leon3_funclt::mainLoop() {
                     this->instrCache.insert(std::pair< unsigned int, CacheElem >(bitString, CacheElem()));
                     instrCacheEnd = this->instrCache.end();
                 }
-            } catch (annull_exception &etc) {
+            } catch (annul_exception &etc) {
                 numCycles = 0;
             }
         }
