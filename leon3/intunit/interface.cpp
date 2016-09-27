@@ -1241,3 +1241,7 @@ leon3_funclt_trap::LEON3_ABIIf::LEON3_ABIIf( unsigned int & PROGRAM_LIMIT, Memor
 MemoryInterface & leon3_funclt_trap::LEON3_ABIIf::get_data_memory(){
   return this->dataMem;
 }
+
+boost::circular_buffer<HistoryInstrType>& leon3_funclt_trap::LEON3_ABIIf::get_history() {
+  return this->history_instr_queue;
+}

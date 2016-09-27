@@ -78,6 +78,7 @@ namespace leon3_funclt_trap{
         unsigned int exitValue;
         std::vector< std::vector< std::string > > routineEntrySequence;
         std::vector< std::vector< std::string > > routineExitSequence;
+        boost::circular_buffer<HistoryInstrType>& history_instr_queue;
 
         public:
         LEON3_ABIIf( unsigned int & PROGRAM_LIMIT, MemoryInterface & dataMem, Reg32_0 & PSR, \
@@ -119,6 +120,7 @@ namespace leon3_funclt_trap{
         void write_mem( const unsigned int & address, unsigned int datum );
         void write_char_mem( const unsigned int & address, unsigned char datum );
         MemoryInterface& get_data_memory();
+        boost::circular_buffer<HistoryInstrType>& get_history();
         virtual ~LEON3_ABIIf();
     };
 

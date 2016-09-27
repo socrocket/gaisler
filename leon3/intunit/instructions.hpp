@@ -133,7 +133,7 @@ namespace leon3_funclt_trap{
         virtual std::string get_mnemonic() const throw() = 0;
         virtual unsigned int get_id() const throw() = 0;
         inline void annull(){
-            throw annull_exception();
+            throw annul_exception();
         }
         inline void flush(){
 
