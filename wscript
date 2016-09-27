@@ -1,6 +1,15 @@
 #! /usr/bin/env python
 # vim : set fileencoding=utf-8 expandtab noai ts=4 sw=4 filetype=python :
 top = '..'
+REPOSITORY_PATH = "gaisler"
+REPOSITORY_NAME = "Gaisler Models"
+REPOSITORY_DESC = """This repository contains Gaisler Models"""
+REPOSITORY_DEPS = {
+  "core": "https://github.com/socrocket/core.git",
+  "amba": "https://github.com/socrocket/amba.git",
+}
+REPOSITORY_TOOLS = [
+]
 
 def build(self):
   self.recurse_all()
