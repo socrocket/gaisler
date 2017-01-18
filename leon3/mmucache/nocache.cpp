@@ -26,7 +26,7 @@ void nocache::mem_write(unsigned int addr, unsigned int asi, unsigned char *data
                         unsigned int length, sc_core::sc_time *t,
                         unsigned int * debug, bool is_dbg, bool &cacheable, bool is_lock) {
 
-    m_mem_adapter->mem_write(addr, asi, data, length, t, debug, is_dbg, is_lock, cacheable);
+    m_mem_adapter->mem_write(addr, asi, data, length, t, debug, is_dbg, cacheable, is_lock);
     if (asi != 8) {
     v::warn << name() << "asi 0x" << hex <<asi
             << v::endl;
@@ -43,7 +43,7 @@ bool nocache::mem_read(unsigned int addr, unsigned int asi, unsigned char * data
     v::warn << name() << "asi 0x" << hex <<asi
             << v::endl;
     }
-    return(m_mem_adapter->mem_read(addr, asi, data, length, t, debug, is_dbg, is_lock, cacheable));
+    return(m_mem_adapter->mem_read(addr, asi, data, length, t, debug, is_dbg, cacheable, is_lock));
 
 }
 
