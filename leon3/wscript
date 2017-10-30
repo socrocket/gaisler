@@ -47,3 +47,4 @@ def build(self):
         install_path    = '${PREFIX}/lib',
         defines         = 'ENABLE_HISTORY', 
     )
+    self.recurse(['intunit'])

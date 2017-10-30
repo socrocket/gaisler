@@ -31,7 +31,7 @@ def build(bld):
         install_path    = '${PREFIX}/lib',
         defines         = 'ENABLE_HISTORY', 
     )
-"""
+
     sources = sources + 'main.cpp'
     bld.program(
         target = 'leon3.funclt.platform',
@@ -40,4 +40,4 @@ def build(bld):
         source = sources, 
         use = use, 
     )
-"""
+
